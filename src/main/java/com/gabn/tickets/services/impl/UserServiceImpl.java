@@ -1,7 +1,5 @@
 package com.gabn.tickets.services.impl;
 
-import java.time.format.DateTimeFormatter;
-
 import com.gabn.tickets.configs.ModelMapperConfig;
 import com.gabn.tickets.domains.CriteriaDomain;
 import com.gabn.tickets.domains.UserDomain;

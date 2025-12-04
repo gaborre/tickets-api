@@ -35,11 +35,9 @@ public class SSORequestFilter extends OncePerRequestFilter {
         HttpServletRequest request, HttpServletResponse response, FilterChain chain
     ) throws ServletException, IOException {
         final String requestTokenHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
-        log.info("Authorization Header: {}", requestTokenHeader);
 
         if (jwtUtil.isJwtToken(requestTokenHeader)) {
             final String jwtToken = requestTokenHeader.substring(JWT_PREFIX_SIZE);
-            log.info("jwtToken: {}", jwtToken);
             try {
                 if (
                     Objects.isNull(SecurityContextHolder.getContext().getAuthentication())
