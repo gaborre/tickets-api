@@ -84,7 +84,6 @@ Thumbs.db
 *.classpath
 *.factorypath
 *.project
-mvnw
 
 .settings/
 src/main/resources/application-*.properties
