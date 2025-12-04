@@ -77,7 +77,9 @@ public class UserController implements IUserDocs {
         path = "/uuid/{uuid}"
     )
     @Override
-    public ResponseEntity<BaseResponseDTO<UserDTO>> getUserByUuid(String uuid) throws EntityNotFoundException {
+    public ResponseEntity<BaseResponseDTO<UserDTO>> getUserByUuid(
+        @PathVariable(name = "uuid") String uuid
+    ) throws EntityNotFoundException {
         UserDomain userDomain = userService.getUserByUuid(uuid);
         return ResponseEntity.status(HttpStatus.OK.value())
             .body(

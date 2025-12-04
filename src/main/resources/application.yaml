@@ -11,11 +11,11 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
     open-in-view: false
     properties:
       hibernate:
-        format_sql: true
+        format_sql: false
 
   h2:
     console:
@@ -30,3 +30,15 @@ springdoc:
   packages-to-scan: com.gabn.tickets
 
 jwt-secret: de10f8c9-cdaf-4bba-8e09-d55361429e27
+
+logging:
+  level:
+    root: INFO
+    com.gabn.tickets: INFO
+    org.springframework.cache: DEBUG
+    org.springframework.cache.interceptor: TRACE
+
+cache:
+  tickets:
+    enabled: true
+    ttl-in-minutes: 10

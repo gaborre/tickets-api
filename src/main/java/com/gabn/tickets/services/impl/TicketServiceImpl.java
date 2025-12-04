@@ -11,11 +11,13 @@ import com.gabn.tickets.models.Ticket;
 import com.gabn.tickets.repositories.TicketRepository;
 import com.gabn.tickets.services.ITicketService;
 import com.gabn.tickets.specifications.TicketSpecification;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import static com.gabn.tickets.constants.CachingConstants.TICKETS_API_CACHE_TAG;
 import static com.gabn.tickets.constants.TicketValidationMessage.TICKET_ENTITY_TYPE;
 import static com.gabn.tickets.constants.TicketValidationMessage.TICKET_NOT_FOUND;
 import static com.gabn.tickets.mappers.TicketMapper.mapToTicketDomain;
@@ -28,6 +30,10 @@ public class TicketServiceImpl implements ITicketService {
         this.ticketRepository = ticketRepository;
     }
 
+    @CacheEvict(
+        cacheNames = TICKETS_API_CACHE_TAG,
+        allEntries = true
+    )
     @Transactional
     @Override
     public TicketDomain createTicket(CreateTicketDomain createTicketDomain) {
@@ -75,6 +81,10 @@ public class TicketServiceImpl implements ITicketService {
             .map((Ticket ticket) -> ModelMapperConfig.getInstance().map(ticket, TicketDomain.class));
     }
 
+    @CacheEvict(
+        cacheNames = TICKETS_API_CACHE_TAG,
+        allEntries = true
+    )
     @Transactional
     @Override
     public TicketDomain updateTicketById(UpdateTicketDomain updateTicketDomain) throws EntityNotFoundException {
@@ -87,6 +97,10 @@ public class TicketServiceImpl implements ITicketService {
         return ModelMapperConfig.getInstance().map(ticketRepository.save(existingTicket), TicketDomain.class);
     }
 
+    @CacheEvict(
+        cacheNames = TICKETS_API_CACHE_TAG,
+        allEntries = true
+    )
     @Transactional
     @Override
     public TicketDomain deleteTicketById(Long id) throws EntityNotFoundException {

@@ -1,0 +1,25 @@
+##############GENERAL CONFIGURATION#################################
+spring:
+  application:
+    name: tickets-api
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+  datasource:
+    url: jdbc:h2:mem:demo;DB_CLOSE_DELAY=-1;MODE=LEGACY
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+##############SECURITY CONFIGURATION######################
+jwt-secret: TESTbGDq28dVXwPvuqtpvarJnBayrwQcFFdYVcMqYHTAcQrUeRhpd9jUats5CfhGaH9yN8JMrDXF879BW7pwTP9VJHwmQS87mJPHg8xzMjzM4SJxyrtmdy32RDc8A4v2bCebKFuFsL8gNmUaAkKrgWdATSUaUa4QU5bumbm7kb79kmCmmGqsxzTvAbFhhgJpy5zzEsDRmPrFsuDqVXF4TX9RTD7M3344BdJfzrG4VzJtkdYbSfsT9fdx3ehkTSmhJ8AjKvaLX9ujM6Uxy4NgMG9azgFChwndyz5Zfs85zBfK3u9eqPMSf5Mp2mfsqt6dkXY4WmRHJBJsazHDDD9gdXnuJxmPBeMMXFQKCanGscw5RgqSsceZdTQfkvspMGYZhcxhHxD97xxh9ccyUFbT5LvCCkVR9yQqCMLaDHGyCa5BBQ53fBxZWtMkn3Dq9R2qeHtBRCzkKhBczgm9beSQLP5Vp9G3HTubHAfCzwtc7mfLvkePCK8PZVSbn7k4PE3sCEzu
