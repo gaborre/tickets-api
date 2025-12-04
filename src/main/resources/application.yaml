@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: tickets-api
+
+  datasource:
+    url: jdbc:h2:mem:demo;DB_CLOSE_DELAY=-1;MODE=LEGACY
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  packages-to-scan: com.gabn.tickets
+
+jwt-secret: de10f8c9-cdaf-4bba-8e09-d55361429e27
