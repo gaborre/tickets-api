@@ -1,0 +1,10 @@
+package com.gabn.tickets.constants;
+
+public interface ErrorTypeConstants {
+    String UNAUTHORIZED_TYPE = "UNAUTHORIZED_TYPE";
+    String FORBIDDEN_TYPE = "FORBIDDEN_TYPE";
+    String SERVER_WEB_INPUT_TYPE = "SERVER_WEB_INPUT_TYPE";
+    String SIGNATURE_TYPE = "SIGNATURE_TYPE";
+    String WEB_EXCHANGE_BIND_TYPE = "WEB_EXCHANGE_BIND_TYPE";
+    String ARGUMENTS_NOT_VALID_TYPE = "ARGUMENTS_NOT_VALID_TYPE";
+}
